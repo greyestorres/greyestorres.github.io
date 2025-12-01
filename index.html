@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo Reyes - Product Owner Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .resume-container {
+            max-width: 850px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .title {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+        
+        .main-content {
+            padding: 40px;
+        }
+        
+        .summary {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: linear-gradient(135deg, #eff6ff 0%, #ddd6fe 100%);
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .summary h2 {
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .summary p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .highlight-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+        }
+        
+        .highlight-box h3 {
+            color: #f59e0b;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .highlight-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        
+        .highlight-list li {
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .highlight-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #2563eb;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #7c3aed;
+        }
+        
+        .experience-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fafbfc;
+            border-left: 3px solid #2563eb;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .company {
+            color: #2563eb;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+        
+        .date-location {
+            text-align: right;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .job-description {
+            margin-top: 12px;
+            line-height: 1.7;
+            color: #555;
+            font-style: italic;
+        }
+        
+        .achievements {
+            list-style: none;
+            margin-top: 12px;
+        }
+        
+        .achievements li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: bold;
+        }
+        
+        .achievements li strong {
+            color: #2563eb;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid #2563eb;
+        }
+        
+        .skill-category h3 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background: #2563eb;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            transition: background 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: #7c3aed;
+        }
+        
+        .education-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #2563eb;
+        }
+        
+        .degree {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .school {
+            color: #2563eb;
+            font-weight: 500;
+        }
+        
+        .languages {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .language {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+            }
+            
+            .date-location {
+                text-align: left;
+            }
+            
+            .highlight-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">Gustavo Reyes</h1>
+                <p class="title">Product Owner | Design-Driven Product Leader</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>gustavo.reyes@email.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🌐</span>
+                        <a href="https://behance.net/gustrazo" target="_blank">Portfolio</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <a href="#" target="_blank">LinkedIn</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Remote • Global</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="summary">
+                <h2>Product Owner Profile</h2>
+                <p>Results-driven Product Owner with 6+ years leading cross-functional teams to deliver user-centered digital products. Unique combination of deep UX expertise and product management skills, with proven ability to bridge design, development, and business stakeholders. Track record of improving team efficiency by 200%, implementing agile workflows, and driving product strategy from concept to launch across gaming, fintech, and SaaS platforms.</p>
+            </section>
+
+            <div class="highlight-box">
+                <h3>Product Owner Core Strengths</h3>
+                <ul class="highlight-list">
+                    <li>Stakeholder Management & Alignment</li>
+                    <li>Agile/Scrum Product Development</li>
+                    <li>User Story Creation & Backlog Management</li>
+                    <li>Cross-Functional Team Leadership</li>
+                    <li>User Research & Validation</li>
+                    <li>Product Roadmap Planning</li>
+                    <li>Sprint Planning & Prioritization</li>
+                    <li>KPI Definition & Analytics</li>
+                </ul>
+            </div>
+
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Product Owner / Design Lead</div>
+                            <div class="company">CBI (Crypto Blockchain Industries)</div>
+                        </div>
+                        <div class="date-location">
+                            2024 - Present<br>
+                            Remote
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        Lead product strategy and execution for blockchain gaming products, serving as the bridge between business objectives, user needs, and technical capabilities.
+                    </div>
+                    <ul class="achievements">
+                        <li><strong>Product Vision:</strong> Define and communicate product roadmap for multiple concurrent gaming/gamification projects</li>
+                        <li><strong>Multilingual Stakeholder Management:</strong> Facilitate alignment across international teams—conducting meetings in French with stakeholders, English with development team, and Spanish with design team</li>
+                        <li><strong>Backlog Ownership:</strong> Prioritize features and user stories based on business value and user impact</li>
+                        <li><strong>Agile Leadership:</strong> Lead sprint ceremonies including planning, reviews, and retrospectives</li>
+                        <li><strong>User Advocacy:</strong> Translate user research insights into actionable product requirements</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Product Owner / UI/UX Lead</div>
+                            <div class="company">Smarterverse</div>
+                        </div>
+                        <div class="date-location">
+                            2022 - 2024<br>
+                            Remote
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        Established product development processes and drove product strategy for metaverse platform UI systems.
+                    </div>
+                    <ul class="achievements">
+                        <li><strong>Process Implementation:</strong> Defined agile workflows that improved delivery predictability and team velocity</li>
+                        <li><strong>Product Strategy:</strong> Established clear product vision and direction for UI/UX features</li>
+                        <li><strong>Bilingual Team Leadership:</strong> Led cross-functional collaboration in Spanish and English with Design, Engineering, and Product stakeholders</li>
+                        <li><strong>Requirements Definition:</strong> Created comprehensive user stories and acceptance criteria</li>
+                        <li><strong>Stakeholder Communication:</strong> Presented product updates and gathered feedback from international leadership</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Product Manager / Lead Designer</div>
+                            <div class="company">Distrito ACB</div>
+                        </div>
+                        <div class="date-location">
+                            2021 - 2022<br>
+                            Spain (Remote)
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        Drove product development and team efficiency as the liaison between design, engineering, and project management.
+                    </div>
+                    <ul class="achievements">
+                        <li><strong>Efficiency Improvement:</strong> Increased team productivity by 200% through workflow optimization and clear documentation</li>
+                        <li><strong>Conflict Resolution & Team Dynamics:</strong> Successfully navigated challenging stakeholder relationships in high-pressure environment, utilizing emotional intelligence and structured communication to transform dysfunctional meetings into productive collaboration sessions</li>
+                        <li><strong>Product Delivery:</strong> Ensured on-time delivery of all product milestones through effective backlog management despite difficult client dynamics</li>
+                        <li><strong>Process Innovation:</strong> Created documentation standards and meeting protocols that became company-wide best practices</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Product Designer / Team Lead</div>
+                            <div class="company">Innovations Media</div>
+                        </div>
+                        <div class="date-location">
+                            2021 - 2022<br>
+                            Remote
+                        </div>
+                    </div>
+                    <div class="job-description">
+                        Led product development for 3+ gaming products while establishing narrative design as a core product discipline.
+                    </div>
+                    <ul class="achievements">
+                        <li><strong>Product Launch:</strong> Delivered UI/UX for 3 games and 1 mobile app from concept to production</li>
+                        <li><strong>Tool Migration:</strong> Championed and led company-wide transition to Figma, improving collaboration efficiency</li>
+                        <li><strong>International Team Coordination:</strong> Managed product development across bilingual teams, conducting meetings and documentation in English and Spanish</li>
+                        <li><strong>Department Creation:</strong> Founded Narrative Design department, expanding product capabilities</li>
+                        <li><strong>Design Systems:</strong> Maintained design systems and UI kits ensuring product consistency</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Product Designer</div>
+                            <div class="company">Interactive Museum of Economics (MIDE)</div>
+                        </div>
+                        <div class="date-location">
+                            2020 - 2021<br>
+                            Mexico City
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li><strong>Product Discovery:</strong> Conducted extensive user research and experience mapping for digital transformation</li>
+                        <li><strong>Feature Ideation:</strong> Generated and validated dozens of product concepts with stakeholders</li>
+                        <li><strong>User Journey Design:</strong> Created end-to-end user experiences for virtual museum platform</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Product & Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Product Management</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Agile/Scrum</span>
+                            <span class="skill-tag">Product Roadmapping</span>
+                            <span class="skill-tag">Backlog Management</span>
+                            <span class="skill-tag">User Stories</span>
+                            <span class="skill-tag">Sprint Planning</span>
+                            <span class="skill-tag">Stakeholder Management</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>User Research & Analytics</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">User Research</span>
+                            <span class="skill-tag">User Testing</span>
+                            <span class="skill-tag">A/B Testing</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">KPI Tracking</span>
+                            <span class="skill-tag">User Personas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Design & Prototyping</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Wireframing</span>
+                            <span class="skill-tag">Prototyping</span>
+                            <span class="skill-tag">Design Systems</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Domain Expertise</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Gaming Products</span>
+                            <span class="skill-tag">Gamification</span>
+                            <span class="skill-tag">Blockchain/Web3</span>
+                            <span class="skill-tag">SaaS Platforms</span>
+                            <span class="skill-tag">Mobile Apps</span>
+                            <span class="skill-tag">Extended Reality</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Education & Certifications</h2>
+                
+                <div class="education-item">
+                    <div class="degree">UI/UX Design Specialization</div>
+                    <div class="school">California Institute of the Arts (Coursera)</div>
+                    <div style="color: #666; font-size: 0.9em; margin-top: 5px;">2018 - 2019</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="degree">Master of Fine Arts (MFA)</div>
+                    <div class="school">Academy of Art University, San Francisco</div>
+                    <div style="color: #666; font-size: 0.9em; margin-top: 5px;">2019 - 2020</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="degree">B.A. Animation and Digital Arts</div>
+                    <div class="school">Tecnológico de Monterrey, Mexico</div>
+                    <div style="color: #666; font-size: 0.9em; margin-top: 5px;">2012 - 2025</div>
+                </div>
+
+                <div style="margin-top: 20px; padding: 15px; background: #fef3c7; border-radius: 6px; border-left: 4px solid #f59e0b;">
+                    <strong style="color: #f59e0b;">🎯 Product Management Certifications (In Progress)</strong>
+                    <div style="margin-top: 8px; color: #666; font-size: 0.95em;">
+                        Pursuing: Certified Scrum Product Owner (CSPO) • Professional Scrum Product Owner (PSPO)
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Languages</h2>
+                <div class="languages">
+                    <span class="language">Spanish (Native)</span>
+                    <span class="language">English (Fluent)</span>
+                    <span class="language">Portuguese (Professional)</span>
+                    <span class="language">French (Conversational)</span>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
